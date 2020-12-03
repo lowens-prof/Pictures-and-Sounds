@@ -1,0 +1,129 @@
+
+<html lang="en">
+<head>
+  <title>Contrast Demo</title>
+  <!--link rel="shortcut icon" href="http://home.adelphi.edu/~siegfried/aulogo.gif"-->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 3px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+
+</style>
+
+<header>
+  <div class="box-1">
+
+    <a id="skipnav" href="#pastnav">[Skip navigation]</a><br>
+
+    <img id="AdelphiLogo" src="images/AdelphiLogo.png" width="200" height="64" alt="Adelphi Logo">
+
+    <h1 style="text-align:center">Contrast</h1>
+
+  </div>
+</header>
+
+
+<nav aria-label="Main Navigation">
+  <div class="topnav">
+    <a href="home.html">Home</a>
+    <a class="active" href="#contrast">Contrast Accessibility</a>
+    <a href="formatting.html">Formatting Accessibility</a>
+    <a href="alt.html">Image Accessibility</a>
+    <a href="references.html">References</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+
+<main>
+  <a name="pastnav"> </a>
+  <tr>
+
+
+   <h3>Why is Contrast Important</h3>
+   <p>In terms of accessibility, web content should be easy to read and digest. It may enhance your website to throw a bunch of colors to make it look cool. However, is it accessible for an audience that has vision disabilities?</p>
+   <h4>Contrast Example:</h4>
+   <p>Make sure you use colors that contrast one another.</p>
+   <p>Bad Contrast: <span style="background-color: rgb(124, 112, 107);">The quick brown fox jumps over the lazy dog</span></p>
+   <p>Good Contrast: <span style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">The quick brown fox jumps over the lazy dog</span></p>
+   <p>To ensure following web content accessibility guidelines (WCAG), WebAim can be used for testing out color and contrast. Here is the link to their <a href="https://webaim.org/resources/contrastchecker/" rel="noopener noreferrer" target="_blank">Color Contrast Checker</a>.</p>
+   <p><br></p>
+
+        <p><strong><span style="font-size: 20px; font-family: Arial, Helvetica, sans-serif;">Foreground Color:</span></strong></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><input type="color" id="foreground" value="#ffffff"></span></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><strong><span style="font-size: 20px;">Background Color:</span></strong></span></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><input type="color" id="background" value="#000000"></span></p>
+    <p id="normal" style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);"><span style="font-family: Arial, Helvetica, sans-serif;">The quick brown fox jumps over the lazy dog</span></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><br></span></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 22px;"><strong><span style="color: rgb(209, 72, 65);">Normal Text</span></strong></span></span></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 16px;"><strong>WCAG AA: <span style="color: rgb(65, 168, 95);">PASS</span></strong></span></span></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><strong><span style="font-size: 16px;">WCAG AAA:&nbsp;</span><span style="color: rgb(65, 168, 95); font-size: 16px;">PASS</span>&nbsp;</strong></span></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 22px;"><strong><span style="color: rgb(209, 72, 65);">Large Text</span></strong></span></span></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 16px;"><strong>WCAG AA: <span style="color: rgb(65, 168, 95);">PASS</span>&nbsp;</strong></span></span></p>
+    <p><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 16px;"><strong>WCAG AAA:&nbsp;</strong><span style="color: rgb(65, 168, 95);"><strong>PASS</strong></span></span></span><strong><span style="font-family: Arial, Helvetica, sans-serif; font-size: 16px;">&nbsp;</span></strong></p>
+    <script>
+        foreground.addEventListener("change", myFunction, true);
+        background.addEventListener("change", myFunction, true);
+        
+            function myFunction() {
+              var c1 = document.getElementById("foreground");
+              var c2 = document.getElementById("background");
+            
+              var c1CurrentVal = c1.value;
+              var c2CurrentVal = c2.value;
+              
+            document.getElementById('normal').style.color=c1CurrentVal;
+        
+            document.getElementById('normal').style.backgroundColor=c2CurrentVal;
+        
+            }
+    </script>
+
+
+   <h2><span style="color: rgb(209, 72, 65);"><strong>*Prototype Disclaimer*</strong></span></h2>
+   <p>Above is the current state of our contrast checker, it can change the example text's foreground and background color. Prompting the user if the color combination they use is accessible is the next step using the relative luminance formula below.&nbsp;</p>
+   <p><br></p>
+   <p><a href="https://www.w3.org/WAI/GL/wiki/Relative_luminance#:~:text=WCAG%20definition%20of%20relative%20luminance&text=Note%201%3A%20For%20the%20sRGB,%2B0.055)%2F1.055)%20%5E%202.4" rel="noopener noreferrer" target="_blank">Relative Luminance Computation</a>:</p>
+   <p style="margin: 0.5em 0px; line-height: inherit; color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">For the sRGB colorspace, the relative luminance of a color is defined as L = 0.2126 * R + 0.7152 * G + 0.0722 * B where R, G and B are defined as:</p>
+   <ul style='list-style-type: disc; margin: 0.3em 0px 0px 1.6em; padding: 0px; list-style-image: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%225%22%20height%3D%2213%22%3E%0A%3Ccircle%20cx%3D%222.5%22%20cy%3D%229.5%22%20r%3D%222.5%22%20fill%3D%22%2300528c%22%2F%3E%0A%3C%2Fsvg%3E%0A"); color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;'>
+    <li style="margin-bottom: 0.1em;">if RsRGB &lt;= 0.03928 then R = RsRGB/12.92 else R = ((RsRGB+0.055)/1.055) ^ 2.4</li>
+    <li style="margin-bottom: 0.1em;">if GsRGB &lt;= 0.03928 then G = GsRGB/12.92 else G = ((GsRGB+0.055)/1.055) ^ 2.4</li>
+    <li style="margin-bottom: 0.1em;">if BsRGB &lt;= 0.03928 then B = BsRGB/12.92 else B = ((BsRGB+0.055)/1.055) ^ 2.4</li>
+  </ul>
+  <p style="margin: 0.5em 0px; line-height: inherit; color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">and RsRGB, GsRGB, and BsRGB are defined as:</p>
+  <ul style='list-style-type: disc; margin: 0.3em 0px 0px 1.6em; padding: 0px; list-style-image: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%225%22%20height%3D%2213%22%3E%0A%3Ccircle%20cx%3D%222.5%22%20cy%3D%229.5%22%20r%3D%222.5%22%20fill%3D%22%2300528c%22%2F%3E%0A%3C%2Fsvg%3E%0A"); color: rgb(37, 37, 37); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;'>
+    <li style="margin-bottom: 0.1em;">RsRGB = R8bit/255</li>
+    <li style="margin-bottom: 0.1em;">GsRGB = G8bit/255</li>
+    <li style="margin-bottom: 0.1em;">BsRGB = B8bit/255</li>
+  </ul>
+
+</main>
+
+
+
+<footer>
+  <div class="box-2">
+    <ul style="list-style-type:none;">
+     <li>Liam Owens and Marvin Chen</li>
+     <li>Topics in Computer Science</li>
+     <li>Adelphi University</li>
+     <li>Professor Xiaoxing Liu</li>
+     <li>lowens@adelphi.edu</li>
+     <li>jiajunchen@mail.adelphi.edu</li>
+   </ul>
+ </div>
+</footer>
+</body>
+</html>
